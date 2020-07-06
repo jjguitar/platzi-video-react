@@ -1,0 +1,25 @@
+@media only screen and (max-width: 450px) {
+  .footer {
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 10px 0;
+  }
+  .carousel-item {
+    width: 150px;
+    height: 200px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .header--menu_profile {
+    p {
+      display: none;
+    }
+  }
+  .header--menu {
+    margin-right: 20px;
+    ul {
+      margin-left: -55px;
+    }
+  }
+}

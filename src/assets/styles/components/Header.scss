@@ -1,4 +1,16 @@
 @import "./global.scss";
+// @import "../Media.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: $medium_purple;
+  font-family: $muli;
+  list-style: none;
+}
 
 .header--menu {
   margin-right: 50px;
