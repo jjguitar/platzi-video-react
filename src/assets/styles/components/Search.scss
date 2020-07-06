@@ -1,0 +1,21 @@
+@import "./global.scss";
+
+.search {
+  @extend .center;
+  flex-direction: column;
+  color: $white;
+  height: 200px;
+  h2 {
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  input {
+    width: 70%;
+    padding: 15px 0 15px 20px;
+    border-radius: 25px;
+    outline: none;
+    border: 1px solid $white;
+    background-color: rgba($color: $white, $alpha: 0.1);
+    color: $white;
+  }
+}

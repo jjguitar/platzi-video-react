@@ -1,5 +1,21 @@
-body {
+@import "./components/global.scss";
+
+* {
   margin: 0;
-  background-color: red;
-  color: white
+  padding: 0;
+}
+
+html {
+  background-color: $medium_purple;
+  font-family: $muli;
+  list-style: none;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
