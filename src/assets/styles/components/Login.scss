@@ -1,0 +1,41 @@
+@import "./global.scss";
+
+.login {
+  @extend .center;
+  flex-direction: column;
+  min-height: calc(100vh - 250px);
+  background: linear-gradient($mountain_green, $medium_purple);
+  padding: 0 30px;
+}
+
+.login--form {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login--remember {
+  @extend .center;
+  font-size: 12px;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.login--remember__check {
+  @extend .center;
+  input {
+    margin-right: 5px;
+  }
+}
+
+.social--login {
+  margin: 70px 0;
+}
+
+.social--login__red {
+  @extend .center;
+  justify-content: flex-start;
+  img {
+    padding-right: 10px;
+  }
+}

@@ -1,15 +1,14 @@
 import React from "react";
-import '../assets/styles/components/Header.scss'
-import logo from '../assets/static/logo-platzi-video-BW2.png'
-import userIcon from '../assets/static/user-icon.png'
+import { Link } from "react-router-dom";
+import "../assets/styles/components/Header.scss";
+import logo from "../assets/static/logo-platzi-video-BW2.png";
+import userIcon from "../assets/static/user-icon.png";
 
 const Header = () => (
   <header className="header">
-    <img
-      className="header--logo"
-      src={logo}
-      alt="Platzi logo"
-    />
+    <Link to="/">
+      <img className="header--logo" src={logo} alt="Platzi logo" />
+    </Link>
     <div className="header--menu">
       <div className="header--menu_profile">
         <img src={userIcon} alt="" />
@@ -20,7 +19,7 @@ const Header = () => (
           <a href="/">Cuenta</a>
         </li>
         <li>
-          <a href="index.html">Cerrar Sesión</a>
+          <Link to="/login">Iniciar Sesión</Link>
         </li>
       </ul>
     </div>

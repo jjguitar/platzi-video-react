@@ -1,0 +1,28 @@
+@import "./global.scss";
+
+.animated {
+  animation-duration: 2.5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.1);}
+  100% {transform: scale(1);}
+}
+
+
+.pulse {
+  animation-name: pulse;
+  animation-duration: 1s;
+}
+
+.not-found {
+  color: $white;
+  font-family: $muli;
+  margin-bottom: 10px;
+  text-align: center;
+  h1 {
+    font-size: 100px;
+  }
+}

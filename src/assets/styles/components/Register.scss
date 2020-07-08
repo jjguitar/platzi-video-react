@@ -1,0 +1,7 @@
+@import "./global.scss";
+
+.back-login {
+  @extend .center;
+  height: 150px;
+  text-align: center;
+}
