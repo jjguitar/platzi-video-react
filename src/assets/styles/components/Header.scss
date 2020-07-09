@@ -12,6 +12,16 @@ html {
   list-style: none;
 }
 
+.isLogin, .isRegister, .isNotFound {
+  background-color: $mountain_green;
+}
+
+.isLogin, .isRegister {
+  .header--menu {
+    display: none;
+  }
+}
+
 .header--menu {
   margin-right: 50px;
 }
@@ -48,4 +58,9 @@ html {
 .header--menu:hover ul,
 ul:hover{
   display: block;
+}
+
+.header--menu_profile img {
+  border-radius: 100%;
+  object-fit: cover;
 }

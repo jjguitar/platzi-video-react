@@ -10,9 +10,10 @@
   }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 350px) {
   .header--menu_profile {
-    p {
+    margin-left: 5px;
+    .header--menu_profile_p {
       display: none;
     }
   }

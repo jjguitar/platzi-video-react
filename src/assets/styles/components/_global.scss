@@ -69,6 +69,23 @@ a {
   margin-bottom: 20px;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: $white;
+  -webkit-box-shadow: 0 0 0px 1000px rgba($color: #ffffff, $alpha: 0.3) inset;
+  border-radius: 10px;
+  transition: background-color 5000s ease-in-out 0s;
+  font-family: $muli;
+}
+
 .login--form_button {
   background-color: rgba($color: #ffffff, $alpha: 0.3);
   border: none;
@@ -87,6 +104,7 @@ a {
   padding-left: 20px;
   font-size: 14px;
   position: relative;
+  z-index: -1;
   bottom: 0;
   a {
     color: $white;

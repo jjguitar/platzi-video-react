@@ -62,7 +62,7 @@
   .carousel-item__details--subtitle {
     @extend .carousel-item__details-center;
   }
-  div > img {
+  .carousel-item__icon {
     width: 30px;
   }
 }
