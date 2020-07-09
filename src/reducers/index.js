@@ -17,38 +17,37 @@ const reducer = (state, action) => {
       return {
         ...state,
         user: action.payload,
-      }
+        searchResult: []
+      };
     case "LOGOUT_REQUEST":
       return {
         ...state,
         user: action.payload,
-      }
+      };
     case "REGISTER_REQUEST":
       return {
         ...state,
         user: action.payload,
-      }
+      };
     case "GET_VIDEO_SOURCE":
-    return {
-      ...state,
-      playing: state.trends.find(item => item.id === Number(action.payload))
-      || state.originals.find(item => item.id === Number(action.payload))
-      || []
-    }
-    case 'SEARCH_VIDEO':
-      if (action.payload === '') return {...state, results: []}
-
-      let results = []
-      const textSearch = action.payload.toLocaleLowerCase();
-      const resultsTrends = state.trends.filter(item => item.title.toLowerCase().includes(textSearch))
-      const resultsOriginals = state.originals.filter(item => item.title.toLowerCase().includes(textSearch))
-      results = results.concat(resultsTrends);
-      results = results.concat(resultsOriginals);
+      return {
+        ...state,
+        playing:
+          state.trends.find((item) => item.id === Number(action.payload)) ||
+          state.originals.find((item) => item.id === Number(action.payload)) ||
+          [],
+      };
+    case "GET_VIDEO_SEARCH":
+      if (action.payload === "") return { ...state, searchResult: [] };
+      console.log(action.payload)
+      const list = [...state.trends, ...state.originals];
 
       return {
         ...state,
-        results
-      }
+        searchResult: list.filter((item) =>
+          item.title.toLowerCase().includes(action.payload.toLowerCase())
+        ),
+      };
     default:
       return state;
   }
