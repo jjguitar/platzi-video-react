@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import { connect } from 'react-redux'
-import { registerRequest } from '../actions'
-import { Link } from "react-router-dom";
-import "../assets/styles/components/Login.scss";
-import "../assets/styles/components/Register.scss";
-import Header from "../components/Header";
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { registerRequest } from '../actions';
+import '../assets/styles/components/Login.scss';
+import '../assets/styles/components/Register.scss';
+import Header from '../components/Header';
 
 const Register = (props) => {
   const [form, setValues] = useState({
-    email: "",
-    name: "",
-    password: "",
-    passwordVerified: "",
+    email: '',
+    name: '',
+    password: '',
+    passwordVerified: '',
   });
   const handleInput = (event) => {
     setValues({
@@ -22,56 +22,56 @@ const Register = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.registerRequest(form)
-    props.history.push('/')
+    props.registerRequest(form);
+    props.history.push('/');
     // console.log(form.password === form.passwordVerified);
   };
   return (
     <>
-    <Header isRegister/>
-    <section className="login">
-      <div className="login--container">
-        <h3 className="login--title">Regístrate</h3>
-        <form
-          action="home.html"
-          className="login--form"
-          onSubmit={handleSubmit}
-        >
-          <input
-            name="name"
-            type="text"
-            className="login--form__input"
-            placeholder="Nombre"
-            onChange={handleInput}
-          />
-          <input
-            name="email"
-            type="email"
-            className="login--form__input"
-            placeholder="Correo"
-            onChange={handleInput}
-          />
-          <input
-            name="password"
-            type="password"
-            className="login--form__input"
-            placeholder="Contraseña"
-            onChange={handleInput}
-          />
-          <input
-            name="passwordVerified"
-            type="password"
-            className="login--form__input"
-            placeholder="Repetir contraseña"
-            onChange={handleInput}
-          />
-          <button className="login--form_button">Registrarme</button>
-        </form>
-        <div className="back-login">
-          <Link to="/login">Inicia sesión</Link>
+      <Header isRegister />
+      <section className='login'>
+        <div className='login--container'>
+          <h3 className='login--title'>Regístrate</h3>
+          <form
+            action='home.html'
+            className='login--form'
+            onSubmit={handleSubmit}
+          >
+            <input
+              name='name'
+              type='text'
+              className='login--form__input'
+              placeholder='Nombre'
+              onChange={handleInput}
+            />
+            <input
+              name='email'
+              type='email'
+              className='login--form__input'
+              placeholder='Correo'
+              onChange={handleInput}
+            />
+            <input
+              name='password'
+              type='password'
+              className='login--form__input'
+              placeholder='Contraseña'
+              onChange={handleInput}
+            />
+            <input
+              name='passwordVerified'
+              type='password'
+              className='login--form__input'
+              placeholder='Repetir contraseña'
+              onChange={handleInput}
+            />
+            <button type='button' className='login--form_button'>Registrarme</button>
+          </form>
+          <div className='back-login'>
+            <Link to='/login'>Inicia sesión</Link>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 };

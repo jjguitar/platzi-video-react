@@ -1,12 +1,12 @@
-import React from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { setFavorite, deleteFavorite } from "../actions";
-import "../assets/styles/components/CarouselItem.scss";
-import playIcon from "../assets/static/play.png";
-import plusIcon from "../assets/static/plus.png";
-import removeIcon from "../assets/static/remove-icon.png";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { setFavorite, deleteFavorite } from '../actions';
+import '../assets/styles/components/CarouselItem.scss';
+import playIcon from '../assets/static/play.png';
+import plusIcon from '../assets/static/plus.png';
+import removeIcon from '../assets/static/remove-icon.png';
 
 const CarouselItem = (props) => {
   const { id, cover, title, year, contentRating, duration, isList } = props;
@@ -25,35 +25,35 @@ const CarouselItem = (props) => {
     props.deleteFavorite(itemId);
   };
   return (
-    <div className="carousel-item">
-      <img className="carousel-item__img" src={cover} alt={title} />
-      <div className="carousel-item__details">
+    <div className='carousel-item'>
+      <img className='carousel-item__img' src={cover} alt={title} />
+      <div className='carousel-item__details'>
         <div>
           <Link to={`/player/${id}`}>
             <img
-              className="carousel-item__icon"
+              className='carousel-item__icon'
               src={playIcon}
-              alt="play"
+              alt='play'
             />
           </Link>
           {isList ? (
             <img
-              className="carousel-item__icon"
+              className='carousel-item__icon'
               src={removeIcon}
-              alt="remove"
+              alt='remove'
               onClick={() => handleDeleteFavorite(id)}
             />
           ) : (
             <img
-              className="carousel-item__icon"
+              className='carousel-item__icon'
               src={plusIcon}
-              alt="plus"
+              alt='plus'
               onClick={handleSetFavorite}
             />
           )}
         </div>
-        <p className="carousel-item__details--title">{title}</p>
-        <p className="carousel-item__details--subtitle">
+        <p className='carousel-item__details--title'>{title}</p>
+        <p className='carousel-item__details--subtitle'>
           {`${year} ${contentRating} ${duration} minutos`}
         </p>
       </div>

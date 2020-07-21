@@ -332,10 +332,6 @@
     "yoda": [
       2,
       "never"
-    ],
-    "extends": "standard",
-    "rules": {
-        "semi": 0
-    }
+    ]
   }
 }

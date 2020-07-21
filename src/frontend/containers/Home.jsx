@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import Search from "../components/Search";
-import Categories from "../components/Categories";
-import Carousel from "../components/Carousel";
-import CarouselItem from "../components/CarouselItem";
-import Header from "../components/Header";
-import "../assets/styles/App.scss";
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
+import { connect } from 'react-redux';
+import Search from '../components/Search';
+import Categories from '../components/Categories';
+import Carousel from '../components/Carousel';
+import CarouselItem from '../components/CarouselItem';
+import Header from '../components/Header';
+import '../assets/styles/App.scss';
 
 const Home = ({ myList, trends, originals, searchResult }) => {
   return (
@@ -14,7 +15,7 @@ const Home = ({ myList, trends, originals, searchResult }) => {
       <Search isHome />
 
       {Object.keys(searchResult).length > 0 && (
-        <Categories title="Resultados de la busqueda...">
+        <Categories title='Resultados de la busqueda...'>
           <Carousel>
             {searchResult.map((item) => (
               <CarouselItem key={item.id} {...item} />
@@ -23,7 +24,7 @@ const Home = ({ myList, trends, originals, searchResult }) => {
         </Categories>
       )}
       {myList.length > 0 && (
-        <Categories title="Mi lista">
+        <Categories title='Mi lista'>
           <Carousel>
             {myList.map((item) => (
               <CarouselItem key={item.id} {...item} isList />
@@ -32,7 +33,7 @@ const Home = ({ myList, trends, originals, searchResult }) => {
         </Categories>
       )}
 
-      <Categories title="Tendencias">
+      <Categories title='Tendencias'>
         <Carousel>
           {trends.map((item) => (
             <CarouselItem key={item.id} {...item} />
@@ -40,7 +41,7 @@ const Home = ({ myList, trends, originals, searchResult }) => {
         </Carousel>
       </Categories>
 
-      <Categories title="Originales de Platzi Video">
+      <Categories title='Originales de Platzi Video'>
         <Carousel>
           {originals.map((item) => (
             <CarouselItem key={item.id} {...item} />

@@ -1,19 +1,19 @@
-const path = require("path");
-const webpack = require("webpack");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CompressionWebpackPlugin = require("compression-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
-const ManifestPlugin = require("webpack-manifest-plugin");
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-require("dotenv").config();
+require('dotenv').config();
 
-const isDev = process.env.ENV === "development";
-const entry = ["./src/frontend/index.js"];
+const isDev = process.env.ENV === 'development';
+const entry = ['./src/frontend/index.js'];
 
 if (isDev) {
   entry.push(
-    "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true"
+    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true',
   );
 }
 
@@ -21,12 +21,12 @@ module.exports = {
   entry,
   mode: process.env.ENV,
   output: {
-    path: path.resolve(__dirname, "src/server/public"),
-    filename: isDev ? "assets/app.js" : "assets/app-[hash].js",
-    publicPath: "/",
+    path: path.resolve(__dirname, 'src/server/public'),
+    filename: isDev ? 'assets/app.js' : 'assets/app-[hash].js',
+    publicPath: '/',
   },
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: ['.js', '.jsx'],
   },
   optimization: {
     minimize: true,
@@ -40,15 +40,16 @@ module.exports = {
           chunks: 'all',
           reuseExistingChunk: true,
           priority: 1,
-          filename: isDev ? "assets/vendor.js" : "assets/vendor-[hash].js",
+          filename: isDev ? 'assets/vendor.js' : 'assets/vendor-[hash].js',
           enforce: true,
           test(module, chunks) {
-            const name = module.nameForCondition && module.nameForCondition()
-            return chunks.some(chunk => chunks.name !== 'vendors' && /[\\/]node_modules[\\/]/.test(name))
-          }
-        }
-      }
-    }
+            const name = module.nameForCondition && module.nameForCondition();
+            // eslint-disable-next-line arrow-parens
+            return chunks.some(chunk => chunks.name !== 'vendors' && /[\\/]node_modules[\\/]/.test(name));
+          },
+        },
+      },
+    },
   },
   module: {
     rules: [
@@ -56,13 +57,13 @@ module.exports = {
         enforce: 'pre',
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader'
+        loader: 'eslint-loader',
       },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
         },
       },
       {
@@ -71,17 +72,17 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
           },
-          "css-loader",
-          "sass-loader",
+          'css-loader',
+          'sass-loader',
         ],
       },
       {
         test: /\.(png|gif|jpg)$/,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
-              name: "assets/[hash].[ext]",
+              name: 'assets/[hash].[ext]',
             },
           },
         ],
@@ -93,20 +94,20 @@ module.exports = {
   },
   plugins: [
     isDev ? new webpack.HotModuleReplacementPlugin() : () => {},
-    isDev
-  ? () => {}
-  : new CleanWebpackPlugin({
-    cleanOnceBeforeBuildPatterns: path.resolve(__dirname, 'src/server/public')
-  }),
-    isDev
-      ? () => {}
-      : new CompressionWebpackPlugin({
-          test: /\.js$|\.css$/,
-          filename: "[path].gz",
-        }),
+    isDev ?
+      () => {} :
+      new CleanWebpackPlugin({
+        cleanOnceBeforeBuildPatterns: path.resolve(__dirname, 'src/server/public'),
+      }),
+    isDev ?
+      () => {} :
+      new CompressionWebpackPlugin({
+        test: /\.js$|\.css$/,
+        filename: '[path].gz',
+      }),
     isDev ? () => {} : new ManifestPlugin(),
     new MiniCssExtractPlugin({
-      filename: isDev ? "assets/app.css" : "assets/app-[hash].css",
+      filename: isDev ? 'assets/app.css' : 'assets/app-[hash].css',
     }),
   ],
 };

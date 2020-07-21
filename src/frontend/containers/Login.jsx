@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { loginRequest } from "../actions";
-import "../assets/styles/components/Login.scss";
-import googleIcon from "../assets/static/google-icon.png";
-import twitterIcon from "../assets/static/twitter-icon.png";
-import Header from "../components/Header";
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { loginRequest } from '../actions';
+import '../assets/styles/components/Login.scss';
+import googleIcon from '../assets/static/google-icon.png';
+import twitterIcon from '../assets/static/twitter-icon.png';
+import Header from '../components/Header';
 
 const Login = (props) => {
   const [form, setValues] = useState({
-    email: "",
+    email: '',
   });
   const handleInput = (event) => {
     setValues({
@@ -20,52 +20,54 @@ const Login = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     props.loginRequest(form);
-    props.history.push("/");
+    props.history.push('/');
   };
   return (
     <>
-      <Header isLogin/>
-      <section className="login">
-        <div className="login--container">
-          <h3 className="login--title">Inicia sesión</h3>
-          <form className="login--form" onSubmit={handleSubmit}>
+      <Header isLogin />
+      <section className='login'>
+        <div className='login--container'>
+          <h3 className='login--title'>Inicia sesión</h3>
+          <form className='login--form' onSubmit={handleSubmit}>
             <input
-              name="email"
-              type="text"
-              className="login--form__input"
-              placeholder="Correo"
+              name='email'
+              type='text'
+              className='login--form__input'
+              placeholder='Correo'
               onChange={handleInput}
             />
             <input
-              name="password"
-              type="password"
-              className="login--form__input"
-              placeholder="Contraseña"
+              name='password'
+              type='password'
+              className='login--form__input'
+              placeholder='Contraseña'
               onChange={handleInput}
             />
-            <button className="login--form_button">Iniciar sesión</button>
+            <button type='button' className='login--form_button'>Iniciar sesión</button>
           </form>
-          <div className="login--remember">
-            <label className="login--remember__check">
-              <input type="checkbox" />
+          <div className='login--remember'>
+            <label htmlFor='cbox1' className='login--remember__check'>
+              <input type='checkbox' id='cbox1' />
               Recuérdame
             </label>
-            <a href="/">Olvidé mi contraseña</a>
+            <a href='/'>Olvidé mi contraseña</a>
           </div>
-          <div className="social--login">
-            <div className="social--login__red">
-              <img src={googleIcon} alt="" />
-              <a href="/">Inicia sesión con Google</a>
+          <div className='social--login'>
+            <div className='social--login__red'>
+              <img src={googleIcon} alt='' />
+              <a href='/'>Inicia sesión con Google</a>
             </div>
-            <div className="social--login__red">
-              <img src={twitterIcon} alt="" />
-              <a href="/">Inicia sesión con Twitter</a>
+            <div className='social--login__red'>
+              <img src={twitterIcon} alt='' />
+              <a href='/'>Inicia sesión con Twitter</a>
             </div>
           </div>
-          <div className="register">
+          <div className='register'>
             <p>
-              No tienes ninguna cuenta {' '}
-              <Link to="/register">Regístrate</Link>
+              No tienes ninguna cuenta
+              {' '}
+              {' '}
+              <Link to='/register'>Regístrate</Link>
             </p>
           </div>
         </div>
