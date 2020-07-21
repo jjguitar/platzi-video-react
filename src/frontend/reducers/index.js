@@ -39,7 +39,6 @@ const reducer = (state, action) => {
       };
     case "GET_VIDEO_SEARCH":
       if (action.payload === "") return { ...state, searchResult: [] };
-      console.log(action.payload)
       const list = [...state.trends, ...state.originals];
 
       return {
