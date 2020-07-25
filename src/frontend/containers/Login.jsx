@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { loginRequest } from '../actions';
+import { loginUser } from '../actions';
 import '../assets/styles/components/Login.scss';
 import googleIcon from '../assets/static/google-icon.png';
 import twitterIcon from '../assets/static/twitter-icon.png';
@@ -19,8 +19,7 @@ const Login = (props) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.loginRequest(form);
-    props.history.push('/');
+    props.loginUser(form, '/');
   };
   return (
     <>
@@ -43,7 +42,7 @@ const Login = (props) => {
               placeholder='Contraseña'
               onChange={handleInput}
             />
-            <button type='button' className='login--form_button'>Iniciar sesión</button>
+            <button type='submit' className='login--form_button'>Iniciar sesión</button>
           </form>
           <div className='login--remember'>
             <label htmlFor='cbox1' className='login--remember__check'>
@@ -77,7 +76,7 @@ const Login = (props) => {
 };
 
 const mapDispatchToProps = {
-  loginRequest,
+  loginUser,
 };
 
 export default connect(null, mapDispatchToProps)(Login);
