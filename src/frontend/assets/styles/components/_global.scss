@@ -97,13 +97,17 @@ select:-webkit-autofill:focus {
   outline: none;
 }
 
+.login--form_button:hover {
+  background-color: rgba($color: #ffffff, $alpha: 0.6);
+}
+
 .footer-global {
   @extend .center;
   height: 50px;
   justify-content: flex-start;
   padding-left: 20px;
   font-size: 14px;
-  position: absolute;
+  position: relative;
   bottom: 0;
   z-index: -1;
   a {
