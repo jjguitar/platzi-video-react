@@ -40,6 +40,40 @@ export const setError = (payload) => ({
   payload,
 });
 
+export const postFavorite = (userId, movieId, movie, cb) => {
+  return (dispatch) => {
+    const body = {
+      userId,
+      movieId,
+    };
+    axios.post('/user-movies', body)
+      .then(({ data }) => {
+        const {
+          data: { movieExist },
+        } = data;
+
+        if (!movieExist) {
+          dispatch(setFavorite(movie));
+        }
+
+        cb(movieExist);
+      })
+      .catch((error) => dispatch(setError(error)));
+  };
+};
+
+export const dropFavorite = (userMovieId, movieId) => {
+  return (dispatch) => {
+    axios.delete(`/user-movies/${userMovieId}`)
+      .then(({ status }) => {
+        if (status === 200) {
+          dispatch(deleteFavorite(movieId));
+        }
+      })
+      .catch((error) => dispatch(setError(error)));
+  };
+};
+
 export const registerUser = (payload, redirectUrl) => {
   return (dispatch) => {
     axios.post('/auth/sign-up', payload)
