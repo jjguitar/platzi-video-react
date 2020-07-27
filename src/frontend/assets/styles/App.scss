@@ -1,5 +1,4 @@
 @import "./components/global.scss";
-@import "./Media.scss";
 
 * {
   margin: 0;
@@ -20,3 +19,5 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+@import "./Media.scss";
