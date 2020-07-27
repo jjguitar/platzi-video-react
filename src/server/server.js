@@ -110,6 +110,7 @@ const renderApp = async (req, res) => {
         id, email, name,
       },
       searchResult: [],
+      playing: {},
       myList,
       trends: movieList.filter((movie) => movie.contentRating === 'PG' &&
       movie._id),
@@ -119,6 +120,7 @@ const renderApp = async (req, res) => {
   } catch (err) {
     initialState = {
       user: {},
+      playing: {},
       searchResult: [],
       myList: [],
       trends: [],
