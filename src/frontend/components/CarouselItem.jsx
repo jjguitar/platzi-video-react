@@ -12,9 +12,7 @@ const CarouselItem = (props) => {
   const { id, cover, title, year, contentRating, duration, isList, _id, user, myList } = props;
   const handleSetFavorite = () => {
     const exist = myList.find((item) => item.id === id);
-    if (exist) {
-      alert('error');
-    } else {
+    if (!exist) {
       const movie = {
         id,
         cover,
@@ -26,11 +24,7 @@ const CarouselItem = (props) => {
       };
       const userId = user.id;
 
-      const cb = (error) => {
-        error ? alert('error') : '';
-      };
-
-      props.postFavorite(userId, _id, movie, cb);
+      props.postFavorite(userId, _id, movie);
     }
   };
   const handleDeleteFavorite = (itemId) => {

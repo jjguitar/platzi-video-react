@@ -40,7 +40,7 @@ export const setError = (payload) => ({
   payload,
 });
 
-export const postFavorite = (userId, movieId, movie, cb) => {
+export const postFavorite = (userId, movieId, movie) => {
   return (dispatch) => {
     const body = {
       userId,
@@ -56,7 +56,6 @@ export const postFavorite = (userId, movieId, movie, cb) => {
           dispatch(setFavorite(movie));
         }
 
-        cb(movieExist);
       })
       .catch((error) => dispatch(setError(error)));
   };
