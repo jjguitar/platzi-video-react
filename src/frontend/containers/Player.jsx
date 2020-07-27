@@ -1,29 +1,39 @@
 /* eslint-disable react/destructuring-assignment */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getVideoSource } from '../actions';
 import '../assets/styles/components/Player.scss';
 import NotFount from './NotFound';
 
-const Player = (props) => {
-  const id = props.match.params;
-  const hasPlaying = Object.keys(props.playing).length > 0;
+const Player = ({ history, match, playing, getVideoSource }) => {
+  const { id } = match.params;
+  const [loading, setLoading] = useState(true);
+  const hasPlaying = Object.keys(playing).length > 0;
+
   useEffect(() => {
-    props.getVideoSource(id);
+    getVideoSource(id);
+    setLoading(false);
   }, []);
-  return !hasPlaying ? <NotFount /> : (
-    <div className='Player'>
+
+  const handleBtnBack = () => history.goBack();
+
+  if (loading) {
+    return <h2>Cargando...</h2>;
+  }
+  return hasPlaying ? (
+    <div className='player'>
       <video controls autoPlay>
-        <source src={{ props: playing.source }} type='video/mp4' />
-        Your browser does not support HTML5 video.
+        <source src={playing.source} type='video/mp4' />
       </video>
       <div className='Player-back'>
-        <button type='button' onClick={() => props.history.goBack()}>
+        <button type='button' onClick={handleBtnBack}>
           Regresar
         </button>
       </div>
     </div>
+  ) : (
+    <NotFount />
   );
 };
 

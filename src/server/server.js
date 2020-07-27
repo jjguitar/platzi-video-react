@@ -16,6 +16,7 @@ import axios from 'axios';
 import serverRoutes from '../frontend/routes/serverRoutes';
 import reducer from '../frontend/reducers';
 import getManifest from './getManifest';
+import Layout from '../frontend/containers/Layout';
 
 dotenv.config();
 
@@ -134,7 +135,7 @@ const renderApp = async (req, res) => {
   const html = renderToString(
     <Provider store={store}>
       <StaticRouter location={req.url} context={{}}>
-        {renderRoutes(serverRoutes(isLogged))}
+        <Layout>{renderRoutes(serverRoutes(isLogged))}</Layout>
       </StaticRouter>
     </Provider>,
   );
