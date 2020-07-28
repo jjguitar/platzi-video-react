@@ -18,6 +18,7 @@ const Player = ({ history, match, playing, getVideoSource }) => {
   console.log(id);
   console.log(playing.source);
   console.log(hasPlaying);
+  console.log(loading);
   if (loading) {
     return setTimeout(<h2>Cargando...</h2>, 0);
   }
