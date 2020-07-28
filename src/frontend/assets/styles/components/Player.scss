@@ -1,7 +1,7 @@
 video {
-  object-fit: cover;
+  object-fit: contain;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 50px);
   z-index: 0;
   position: absolute;
   top: 0;
@@ -28,4 +28,8 @@ video:hover .Player-back {
   border: 0;
   outline: 0;
   cursor: pointer;
+}
+
+.player + .footer {
+  bottom: 0;
 }

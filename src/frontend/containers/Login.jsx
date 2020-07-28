@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { loginUser } from '../actions';
 import '../assets/styles/components/Login.scss';
-import googleIcon from '../assets/static/google-icon.png';
-import twitterIcon from '../assets/static/twitter-icon.png';
+import googleIcon from '../assets/static/google.png';
+import twitterIcon from '../assets/static/twitter.png';
 import Header from '../components/Header';
 
 const Login = (props) => {
