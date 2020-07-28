@@ -17,7 +17,7 @@ const Player = ({ history, match, playing, getVideoSource }) => {
   const handleBtnBack = () => history.goBack();
 
   if (loading) {
-    return <h2>Cargando...</h2>;
+    return setTimeout(<h2>Cargando...</h2>, 0);
   }
   return hasPlaying ? (
     <div className='player'>
