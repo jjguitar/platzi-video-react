@@ -10,12 +10,10 @@ const Player = ({ history, match, playing, getVideoSource }) => {
   const { id } = match.params;
   const [loading, setLoading] = useState(true);
   const hasPlaying = Object.keys(playing).length > 0;
-
   useEffect(() => {
     getVideoSource(id);
     setLoading(false);
   }, []);
-
   const handleBtnBack = () => history.goBack();
 
   if (loading) {
@@ -33,7 +31,7 @@ const Player = ({ history, match, playing, getVideoSource }) => {
       </div>
     </div>
   ) : (
-    <NotFount />
+    setTimeout(<NotFount />, 0)
   );
 };
 
