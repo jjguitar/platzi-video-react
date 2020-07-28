@@ -6,6 +6,20 @@
   padding: 0;
 }
 
+.header--global {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $white;
+  width: 100%;
+}
+
+.header--logo {
+  width: 200px;
+  margin-left: 10px;
+}
+
 html {
   background-color: $medium_purple;
   font-family: $muli;
@@ -17,7 +31,7 @@ html {
 }
 
 .isLogin, .isRegister {
-  .header--menu {
+  .header--menu, .header--menu_profile, .header--menu_profile_p, ul {
     display: none;
   }
 }

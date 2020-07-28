@@ -26,26 +26,22 @@
 }
 
 @media only screen
-and (max-device-width : 480px) {
-  .footer {
+and (max-device-width : 450px) {
+  .login--container {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+  .login--form {
+    margin-top: 50px;
+  }
+  .social--login {
+    margin: 40px 0;
+}
+
+.footer {
     align-items: flex-start;
     flex-direction: column;
     margin: 10px 0;
-  }
-  .carousel-item {
-    width: 150px;
-    height: 200px;
-  }
-  .header--menu_profile {
-    margin-left: 5px;
-    .header--menu_profile_p {
-      display: none;
-    }
-  }
-  .header--menu {
-    margin-right: 20px;
-    ul {
-      margin-left: -55px;
-    }
-  }
+}
 }

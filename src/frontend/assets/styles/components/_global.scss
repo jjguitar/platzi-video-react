@@ -23,50 +23,12 @@ a {
   align-items: center;
 }
 
-.header--global {
-  height: 100px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: $white;
-  width: 100%;
-}
-
-.header--logo {
-  width: 200px;
-  margin-left: 10px;
-}
-
 ::placeholder {
   color: $white;
 }
 
 ::-webkit-scrollbar {
   display: none;
-}
-
-.login--container {
-  border: 1px solid $white;
-  background-color: rgba($color: #ffffff, $alpha: 0.2);
-  padding: 60px 68px 40px;
-  min-height: 520px;
-  width: 300px;
-  height: calc(100vh - 250PX);
-  border-radius: 25px;
-  color: white;
-  h3 {
-    font-weight: 400;
-  }
-}
-
-.login--form__input {
-  @extend ::placeholder;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  padding: 10px 15px;
-  border-bottom: 1px solid $white;
-  margin-bottom: 20px;
 }
 
 input:-webkit-autofill,
@@ -84,36 +46,6 @@ select:-webkit-autofill:focus {
   border-radius: 10px;
   transition: background-color 5000s ease-in-out 0s;
   font-family: $muli;
-}
-
-.login--form_button {
-  background-color: rgba($color: #ffffff, $alpha: 0.3);
-  border: none;
-  border-radius: 50px;
-  padding: 15px 0;
-  margin: 20px 0;
-  color: $white;
-  font-size: 14px;
-  outline: none;
-}
-
-.login--form_button:hover {
-  background-color: rgba($color: #ffffff, $alpha: 0.6);
-}
-
-.footer-global {
-  @extend .center;
-  height: 50px;
-  justify-content: flex-start;
-  padding-left: 20px;
-  font-size: 14px;
-  position: relative;
-  bottom: 0;
-  z-index: -1;
-  a {
-    color: $white;
-    padding-right: 20px;
-  }
 }
 
 @import "../Media.scss";
