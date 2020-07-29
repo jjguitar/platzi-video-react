@@ -15,14 +15,9 @@ const Player = ({ history, match, playing, getVideoSource }) => {
     setLoading(false);
   }, []);
   const handleBtnBack = () => history.goBack();
-  console.time('start');
-  console.log(id);
-  console.log(playing.source);
-  console.log(hasPlaying);
-  console.log(loading);
-  console.timeEnd('start');
+
   if (loading) {
-    return setTimeout(<h2>Cargando...</h2>, 0);
+    return <h2>Cargando...</h2>;
   }
   return hasPlaying ? (
     <div className='player'>
