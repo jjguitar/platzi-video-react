@@ -15,13 +15,12 @@ const Player = ({ history, match, playing, getVideoSource }) => {
     setLoading(false);
   }, []);
   const handleBtnBack = () => history.goBack();
-
   if (loading) {
     return <h2>Cargando...</h2>;
   }
   return hasPlaying ? (
     <div className='player'>
-      <video controls autoPlay>
+      <video controls>
         <source src={playing.source} type='video/mp4' />
       </video>
       <div className='Player-back'>
@@ -31,7 +30,7 @@ const Player = ({ history, match, playing, getVideoSource }) => {
       </div>
     </div>
   ) : (
-    setTimeout(<NotFount />, 0)
+    <NotFount />
   );
 };
 
